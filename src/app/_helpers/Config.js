@@ -1,5 +1,7 @@
+import { getSessionStorage } from "./Session";
+
 export const urlAPI = process.env.REACT_APP_API || "http://localhost:5000/api";
-export const Headers = { 'Content-Type': 'application/json' };
+export const Headers = { 'Content-Type': 'application/json', 'x-access-token': getSessionStorage('_t') };
 
 export function Sorting(data) {
     return data.sort((a, b) => (a.position > b.position) ? 1 : ((b.position > a.position) ? -1 : 0));
