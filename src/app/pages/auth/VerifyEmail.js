@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Headers, urlAPI, handleErrors } from '../../_helpers/Config';
-import { Button, Typography, Card, CardContent, FormControl, InputLabel, OutlinedInput, FormHelperText, 
-    InputAdornment, IconButton, Collapse, makeStyles } from '@material-ui/core';
+import {
+    Button, Typography, Card, CardContent, FormControl, InputLabel, OutlinedInput, FormHelperText,
+    InputAdornment, IconButton, Collapse, makeStyles
+} from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import { NavbarProfile } from '../layouts/Nav';
+import { isAuthenticatedExternal } from '../../_helpers/Session';
 
 const useStyles = makeStyles({
     title: {
@@ -73,11 +76,15 @@ export const VerifiedEmail = () => {
     const { token } = useParams();
 
     const verified = async (token) => {
-        try {
-            const res = await fetch(urlAPI + `/auth/verify/${token}`, { method: 'PATCH', headers: Headers });
-            if (!res.ok) setFail(true);
-            setFail(false)
-        } catch (error) { }
+        if (isAuthenticatedExternal(token)) {
+            try {
+                const res = await fetch(urlAPI + `/auth/verify/${token}`, { method: 'PATCH', headers: Headers });
+                if (!res.ok) setFail(true);
+                setFail(false);
+            } catch (error) { }
+        } else {
+            setFail(false);
+        }
     }
 
     useEffect(() => { verified(token); }, [token]);
@@ -95,7 +102,11 @@ export const VerifiedEmail = () => {
                         }
 
                         {fail &&
-                            fail === false && <Button variant="contained" href="/login" className={"btn-profile " + classes.mt16}>
+                            fail === true ?
+                            <Button variant="contained" href="/" className={"btn-profile " + classes.mt16}>
+                                Ir a inicio
+                            </Button>
+                            : <Button variant="contained" href="/login" className={"btn-profile " + classes.mt16}>
                                 Iniciar sesión
                             </Button>
                         }
@@ -176,13 +187,17 @@ export const EmailChangePass = () => {
 
 export const ChangePassword = () => {
     const classes = useStyles();
-    const [errors, setErrors] = React.useState({password: ''});
-    const [data, setData] = React.useState({password: ''});
+    const [errors, setErrors] = React.useState({ password: '' });
+    const [data, setData] = React.useState({ password: '' });
     const [pass, setPass] = React.useState({ showPass1: false, showPass2: false });
     const [open, setOpen] = React.useState(false);
     const [fail, setFail] = React.useState(false);
     const btn = document.getElementsByClassName('smt');
     const { token } = useParams();
+
+    React.useEffect(() => {
+        if(!isAuthenticatedExternal(token)) setFail(true);
+    },[token])
 
     const handleClickShowPassword = (prop) => () => {
         setPass({ ...pass, [prop]: !pass[prop] });

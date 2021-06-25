@@ -107,6 +107,7 @@ export const ModalCreateEdit = (props) => {
 
     const handleCreateCollection = async () => {
         try {
+            Headers['x-access-token'] = getSessionStorage('_t');
             const Body = JSON.stringify({ name: formCo.name, _user: user });
             const res = await fetch(urlAPI + `/collection/create`, { method: 'POST', headers: Headers, body: Body });
             if (!res.ok) {
@@ -125,6 +126,7 @@ export const ModalCreateEdit = (props) => {
 
     const handleCreateCategory = async () => {
         try {
+            Headers['x-access-token'] = getSessionStorage('_t');
             const Body = JSON.stringify({ name: formCa.name, _collection: ctx.auxObject.idCo });
             const res = await fetch(urlAPI + `/category/create`, { method: 'POST', headers: Headers, body: Body });
             if (!res.ok) {
@@ -145,6 +147,7 @@ export const ModalCreateEdit = (props) => {
 
     const handleCreateMarker = async () => {
         try {
+            Headers['x-access-token'] = getSessionStorage('_t');
             const Body = JSON.stringify({ name: formMa.name, link: formMa.link, _category: ctx.auxObject.idCa });
             const res = await fetch(urlAPI + `/marker/create`, { method: 'POST', headers: Headers, body: Body });
             if (!res.ok) {
@@ -175,6 +178,7 @@ export const ModalCreateEdit = (props) => {
 
     const handleEditCollection = async () => {
         try {
+            Headers['x-access-token'] = getSessionStorage('_t');
             const Body = JSON.stringify({ name: formCo.name, _user: user });
             const res = await fetch(urlAPI + `/collection/update/${formCo._id}`, { method: 'PATCH', headers: Headers, body: Body });
             if (!res.ok) {
@@ -193,6 +197,7 @@ export const ModalCreateEdit = (props) => {
 
     const handleEditCategory = async () => {
         try {
+            Headers['x-access-token'] = getSessionStorage('_t');
             const Body = JSON.stringify({ name: formCa.name, _collection: ctx.auxObject.idCo });
             const res = await fetch(urlAPI + `/category/update/${formCa._id}`, { method: 'PATCH', headers: Headers, body: Body });
             if (!res.ok) {
@@ -211,6 +216,7 @@ export const ModalCreateEdit = (props) => {
 
     const handleEditMarker = async () => {
         try {
+            Headers['x-access-token'] = getSessionStorage('_t');
             const Body = JSON.stringify({ name: formMa.name, link: formMa.link, _category: ctx.auxObject.idCa });
             const res = await fetch(urlAPI + `/marker/update/${formMa._id}`, { method: 'PATCH', headers: Headers, body: Body });
             if (!res.ok) {

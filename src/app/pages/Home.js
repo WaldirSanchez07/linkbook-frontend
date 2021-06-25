@@ -104,6 +104,7 @@ const Home = () => {
             } else if (val._id === id && opc === 'hidden') {
                 copyCategory[idx].hidden = false;
                 try {
+                    Headers['x-access-token'] = getSessionStorage('_t');
                     await fetch(urlAPI + `/category/${id}`, { method: 'PATCH', headers: Headers });
                 } catch (error) { }
             }
@@ -122,6 +123,7 @@ const Home = () => {
         setCollection(dataCopy);
         let dataIds = await dataCopy.map(t => t._id);
         try {
+            Headers['x-access-token'] = getSessionStorage('_t');
             const Body = JSON.stringify(dataIds);
             const res = await fetch(urlAPI + `/collection/position/update`, { method: 'PATCH', headers: Headers, body: Body });
             if (!res.ok) throw new Error("Error");
@@ -135,6 +137,7 @@ const Home = () => {
         setCategory(dataCopy);
         let dataIds = await dataCopy.map(t => t._id);
         try {
+            Headers['x-access-token'] = getSessionStorage('_t');
             const Body = JSON.stringify(dataIds);
             const res = await fetch(urlAPI + `/category/position/update`, { method: 'PATCH', headers: Headers, body: Body });
             if (!res.ok) throw new Error("Error");
@@ -148,6 +151,7 @@ const Home = () => {
         setMarker({ ...marker, [ID]: dataCopy });
         let dataIds = await dataCopy.map(t => t._id);
         try {
+            Headers['x-access-token'] = getSessionStorage('_t');
             const Body = JSON.stringify(dataIds);
             const res = await fetch(urlAPI + `/marker/position/update`, { method: 'PATCH', headers: Headers, body: Body });
             if (!res.ok) throw new Error("error");
@@ -155,6 +159,7 @@ const Home = () => {
     }
 
     const onDelete = async (data, label) => {
+        Headers['x-access-token'] = getSessionStorage('_t');
         if (label === 'collection') {
             setCollection(collection.filter(collection => collection._id !== data._id));
             if (auxObject.idCo === data._id) setBanner(false);

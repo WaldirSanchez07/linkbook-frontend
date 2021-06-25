@@ -35,3 +35,12 @@ export const isAuthenticated = () => {
         return false;
     }
 };
+
+export const isAuthenticatedExternal = (token) => {
+    try {
+        jwt.verify(token, process.env.REACT_APP_SECRET_KEY)
+        return true;
+    } catch (error) {
+        return false;
+    }
+};
