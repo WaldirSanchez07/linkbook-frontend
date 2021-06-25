@@ -14,12 +14,13 @@ import ProtectedPages from './router/ProtectedPages';
 import ProtectedLA from './router/ProtectedLA';
 import IconButton from '@material-ui/core/IconButton';
 import { AppBackground } from './_helpers/Functions';
+import { Loading } from './pages/layouts/Elements';
 
 const App = () => {
     const [auth, setAuth] = React.useState(false);
     const [mode, setMode] = React.useState(false); //for mode light or dark
     const [email, setEmail] = React.useState('');
-
+    const [loading, setLoading] = React.useState(true);
     const body = document.getElementsByTagName("body"); //etq for mode
     
     const fnMode = () => {
@@ -33,7 +34,8 @@ const App = () => {
         if (m === '1') {
             body[0].classList.replace("light", "dark");
             setMode(true);
-        }
+        }  
+        setTimeout(() => {setLoading(false);}, 2000);
     }, [body]);
 
     React.useEffect(() => { handleAuth(); }, []);
@@ -46,6 +48,7 @@ const App = () => {
 
     return (
         <AppContext.Provider value={{ handleAuth, fnEmail }}>
+            { loading && <Loading /> }
             <Router>
                 <Switch>
                     <ProtectedLogin exact path='/login' component={Login} handleAuth={handleAuth} />

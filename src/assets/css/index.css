@@ -103,3 +103,46 @@ footer{
     text-align: center;
     font-weight: 500;
 }
+
+.progressWrapper{
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 999999999;
+}
+.progressContainer{
+    width: 100%;
+    height: 100%;
+    background-color: #F9F9F9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.progressContainer img{
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.progressContainer span{
+    margin-top: 10px;
+    font-weight: 500;
+    color: var(--bg-dark1);
+}
+
+@keyframes loading {
+    0%{
+        filter: saturate(1);
+    }
+    50%{
+        filter: saturate(.5);
+    }
+    100%{
+        filter: saturate(0);
+    }
+}

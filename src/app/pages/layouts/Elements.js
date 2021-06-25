@@ -1,5 +1,6 @@
 import { InputAdornment, IconButton, FormHelperText, CircularProgress } from "@material-ui/core";
 import imgWelcome from '../../../assets/image/welcome.svg';
+import Progress from '../../../assets/image/logo.svg'
 
 export const IconPassword = ({ show, fnShowPassword }) => {
     return (
@@ -25,6 +26,17 @@ export const HomeBanner = () => {
     return(
         <div className="bannerHome">
             <img src={imgWelcome} alt="linkbook-img-welcome" />
+        </div>
+    )
+}
+
+export const Loading = () => {
+    return(
+        <div className="progressWrapper">
+            <div className="progressContainer">
+                <img src={Progress} alt="progress" />
+                <span>Cargando...</span>
+            </div>
         </div>
     )
 }
