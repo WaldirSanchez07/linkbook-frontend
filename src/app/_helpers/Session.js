@@ -1,15 +1,15 @@
 import jwt from 'jsonwebtoken';
 
 export const setSessionStorage = (key, value) => {
-    sessionStorage.setItem(key, value);
+    localStorage.setItem(key, value);
 };
 
 export const getSessionStorage = (key) => {
-    return sessionStorage.getItem(key);
+    return localStorage.getItem(key);
 };
 
 export const removeSessionStorage = (key) => {
-    sessionStorage.removeItem(key);
+    localStorage.removeItem(key);
 }; 
 
 export const SignIn = (token, user) => {
