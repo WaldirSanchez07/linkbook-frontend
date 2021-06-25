@@ -33,6 +33,7 @@ const Home = () => {
 
     const showProfile = () => {
         setProfile(true);
+        setBanner(false);
         if (target) target.offsetParent.removeAttribute("link-active");
     }
 
