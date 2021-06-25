@@ -1,0 +1,105 @@
+:root{
+    --bg-dark1: #202124;
+    --bg-dark2: #2d2c2c;
+    --bg-dark3: #161c24;
+    --bg-dark4: #1A202C;
+    --bg-dark5: #24292e;
+    --bg-dark6: #212b36;
+    --bg-black: #000000;
+    --bg-green: #0aec98;
+    --bg-greenDark : #439D7A;
+    --bg-light: #F9F9F9;
+    --color-gray: #657786;
+    --color-dark: #919eab;
+    --cyan: #00ffff;
+    --yellow: #ffeb3b;
+    --sk-light: #ebebeb;
+    --sk-dark: #656871;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    color: var(--bg-dark1);
+    background-color: var(--bg-light);
+}
+
+body.light{
+    transition: background-color .7s;
+    background-color: var(--bg-light);
+}
+body.dark{
+    transition: background-color .7s;
+    background-color: var(--bg-dark3);
+}
+
+body::-webkit-scrollbar, 
+body *::-webkit-scrollbar{
+    width: 8px;
+    height: 6px;
+    border-radius: 8px;
+    background-color: rgba(145, 158, 171, 0.24);
+}
+  
+body::-webkit-scrollbar-thumb, 
+body ::-webkit-scrollbar-thumb {
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(99, 115, 129, 0.48);
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+
+/*flotationg button*/
+.flotating-buttons{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 20px;
+    right: 24px;
+}
+
+/**** MODE ***/
+.light .main-content{
+    transition: .7s;
+    background-color: var(--bg-light);
+}
+.dark .main-content{
+    transition: .7s;
+    background-color: var(--bg-dark3);
+}
+.light .btn-mod{
+    background-color: var(--bg-dark2) !important;
+    color: #fff !important;
+}
+.dark .btn-mod{
+    background-color: #fff !important;
+}
+.dark .flotating-buttons .MuiIconButton-root:hover{
+    background-color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+.dark .btn-mod .MuiIconButton-label i{
+    color: var(--bg-dark6) !important;
+}
+.mt16{
+    margin-top: 16px !important;
+}
+
+footer{
+    position: absolute;
+    bottom: 16px;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}

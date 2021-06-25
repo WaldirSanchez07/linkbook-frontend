@@ -1,0 +1,144 @@
+.session-container{
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 65px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.session-content{
+    padding: 10px;
+    max-width: 300px;
+    width: 100%;
+    padding: 0 24px;
+    margin: 0 auto;
+}
+.session-header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.session-header h2{
+    font-size: 1.6rem;
+}
+.txtField{
+    width: 100%;
+}
+.txtField:active{
+    border-color: var(--bg-green);
+}
+
+.group-input{
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0;
+}
+.group-input label{
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.input{
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    background-color: transparent;
+}
+
+.session-body{
+    margin-bottom: 30px;
+}
+.session-text{
+    text-align: center;
+    margin: 24px 0;
+}
+.session-text a{
+    text-decoration: none;
+    color: var(--bg-greenDark);
+    font-weight: 600;
+    transition: all .3s ease;
+}
+.session-text a:hover{
+    text-decoration: underline;
+}
+.session-footer{
+    position: relative;
+}
+.btn-progress{
+    color: var(--bg-dark1) !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    margin-top: -12px !important;
+    margin-left: -12px !important;
+}
+@media (max-height: 650px){
+    .session-content{
+        padding-top: 64px;
+    }
+}
+@media(max-width:420px){
+    .session-content{
+        max-width: 100%;
+    }
+}
+
+/** sobreescribir input material**/
+.Mui-input{
+    width: 100%;
+    margin: 0 0 15px 0 !important;
+}
+.Mui-input label[data-shrink="false"]{
+    font-size: 14px !important;
+}
+.Mui-input label[data-shrink="true"]{
+    color: var(--dark) !important;
+    font-size: 1.1rem !important;
+    font-weight: 500;
+}
+
+.MuiInputBase-input{
+    font-size: 14px !important;
+}
+
+.MuiInput-underline::after,
+.MuiOutlinedInput-root::after{
+    border-bottom: 2px solid #000 !important;
+}
+.MuiInput-underline:hover:not(.Mui-disabled):before{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42) !important;
+}
+
+.dark .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #00ffff !important;
+}
+
+.btn-Mui-sub{
+    background-color: #000 !important;
+    color: #fff !important;
+    border-radius: 24px !important;
+    text-transform: none !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    height: 48px !important;
+    width: 100% !important;
+}
+.MuiButton-contained.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26) !important;
+    box-shadow: none !important;
+    background-color: rgba(0, 0, 0, 0.12) !important;
+}
+input[type="password"]::-ms-reveal {
+    display: none;
+}
+.container-link-pass{
+    margin-top: 20px;
+    text-align: end;
+}
+.container-link-pass a{
+    text-decoration: none;
+    color: #000;
+}
+.container-link-pass a:hover{
+    text-decoration: underline;
+}

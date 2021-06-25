@@ -1,0 +1,73 @@
+/** Modal form **/
+.modal-content{
+    padding-top: 10px !important;
+}
+
+.Mui-input-outlined{
+    width: 100%;
+    margin: 0 0 5px 0 !important;
+}
+.Mui-input-outlined label[data-shrink="false"]{
+    font-size: 14px !important;
+}
+.Mui-input-outlined label[data-shrink="true"]{
+    color: var(--dark) !important;
+    font-weight: 500 !important;
+}
+
+/*label placeholder*/
+.dark .Mui-input-outlined label[data-shrink="false"]{
+    color: #c5c5c5;
+}
+.dark .MuiFormLabel-root.Mui-error{
+    color: var(--yellow) !important;
+}
+/*label title*/
+.dark .Mui-input-outlined label[data-shrink="true"]{
+    color: #fff !important;
+}
+
+/*border color input*/
+.dark .MuiOutlinedInput-notchedOutline{
+    border-color: #d8d8d8;
+}
+/*mod light border color of input*/
+.Mui-focused fieldset{
+    border-color: var(--dark) !important;
+}
+.dark .Mui-error fieldset{
+    border-color: var(--yellow) !important;
+}
+.dark .Mui-focused fieldset{
+    border-color: var(--cyan) !important;
+}
+.dark .MuiInputBase-input{
+    color: #fff !important;
+}
+.dark .MuiFormHelperText-root.Mui-error{
+    color: var(--yellow);
+}
+.dark .MuiOutlinedInput-root:hover{
+    border-color: var(--cyan) !important;
+}
+
+.mg{
+    margin: 8px 0 !important;
+}
+.dark .MuiIconButton-label i{
+    transition: .7s;
+    color: #657786;
+}
+
+@media (max-width: 600px) {
+    .MuiChip-label{
+        display: none;
+    }
+    .MuiChip-root .MuiChip-avatar{
+        margin-left: 3px !important;
+        margin-right: 3px !important;
+    }
+    .MuiMenuItem-root{
+        min-height: 0 !important;
+    }
+}

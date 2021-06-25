@@ -1,0 +1,163 @@
+.sidebar-container{
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    background-color: #fff;
+}
+.light .sidebar-container{
+    transition: .7s;
+}
+.sidebar-logo{
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+}
+
+.light .sidebar-logo a{
+    transition: .7s;
+}
+
+.sidebar-content{
+    overflow-y: auto;
+    height: calc(100vh - 64px);
+}
+.menu{
+    margin-bottom: 10px;
+}
+.menu-title{
+    display: flex;
+    align-items: center;
+    padding: 5px 5px 5px 24px;
+    margin-bottom: 10px;
+}
+.menu-title i{
+    font-size: 18px;
+}
+.menu-title span{
+    font-size: 0.875rem;
+    padding-left: 0.8rem;
+    font-weight: 500;
+}
+.npl span{
+    padding-left: 0 !important;
+}
+.npl i{
+    font-size: 24px !important;
+}
+.menu-list{
+    height: 36px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 5px;
+    z-index: 999;
+}
+.menu-list:hover{
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.list-name-container{
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.list-name{
+    display: -webkit-box;
+    width: 95%;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    padding-left: 25px;
+    pointer-events: none;
+}
+.offSidebar{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+}
+
+@media(max-width: 1080px){
+    .sidebar-container{
+        left: -100%;
+        transition: .7s;
+        z-index: 999;
+    }
+    .offSidebar{
+        width: 100%;
+        height: 100%;
+        left: -100%;
+        z-index: 99;
+    }
+    .sidebar-container[sidebar='show']{
+        left: 0%;
+        transition: .7s;
+    }
+    .sidebar-container[sidebar='hidde']{
+        left: -100%;
+        transition: .7s;
+    }
+    
+    .offSidebar[wrapper='show']{
+        left: 0%;
+        transition: .8s;
+    }
+    .offSidebar[wrapper='hidde']{
+        left: -100%;
+        transition: .7s;
+    }
+}
+
+/** SidebarSkeleton **/
+
+.Skeleton{
+    height: 100%;
+    width: 100%;
+}
+.ItemSkeleton{
+    width: auto;
+    margin:0 24px;
+    height: 25px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background: var(--sk-light);
+    position: relative;
+    overflow: hidden;
+}
+.ItemSkeleton::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, var(--sk-light) 0%, rgba(0,0,0,.1) 20%, var(--sk-light) 40%, var(--sk-light) 100%);
+    background-repeat: no-repeat;
+    background-size: 450px 400px;
+    animation: shimmer 1s linear infinite;
+}
+.dark .ItemSkeleton{
+    background: var(--bg-dark6);
+}
+.dark .ItemSkeleton::before{
+    background-image: linear-gradient(to right, var(--bg-dark6) 0%, #888b94 20%, var(--bg-dark6) 40%, var(--bg-dark6) 100%);
+}
+
+.dark .ItemSkeleton.w100{
+    background: var(--bg-dark3);
+}
+.dark .ItemSkeleton.w100::before{
+    background-image: linear-gradient(to right, var(--bg-dark3) 0%, #888b94 20%, var(--bg-dark3) 40%, var(--bg-dark3) 100%);
+}
+
+@keyframes shimmer{
+    0%{
+        background-position: -450px 0;
+    }
+    100%{
+        background-position: 450px 0;
+    }
+}
