@@ -1,4 +1,4 @@
-export const urlAPI = "http://localhost:5000/api";
+export const urlAPI = process.env.REACT_APP_API || "http://localhost:5000/api";
 export const Headers = { 'Content-Type': 'application/json' };
 
 export function Sorting(data) {
