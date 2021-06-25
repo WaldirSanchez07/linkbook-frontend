@@ -167,7 +167,8 @@ export const Navbar = ({ onSidebar }) => {
                 </div>
                 <div className="navbar-right">
                     <div className="avatarContent">
-                        <Chip label="Waldir Sanchez" className="navbar-avatar" onClick={(e) => handleActive()}
+                        <Chip label={name ? name.length > 10 ? name.slice(0, 10)+'...' : name.slice(0, 10) : '...'} 
+                        className="navbar-avatar" onClick={(e) => handleActive()}
                             avatar={<Avatar className={classes.purple}>{name ? name.charAt() : <i className="material-icons">person</i>}</Avatar>}
                         />
                         {active && <Menu paper={classes.paper} menuItem={classes.menuItem} handleActive={handleActive} />}
