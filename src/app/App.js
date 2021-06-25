@@ -35,7 +35,7 @@ const App = () => {
             body[0].classList.replace("light", "dark");
             setMode(true);
         }  
-        setTimeout(() => {setLoading(false);}, 2000);
+        setTimeout(() => {setLoading(false);}, 3000);
     }, [body]);
 
     React.useEffect(() => { handleAuth(); }, []);
