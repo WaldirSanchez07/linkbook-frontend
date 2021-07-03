@@ -5,10 +5,11 @@ import {
     Button, InputAdornment, IconButton, Card, CardContent, Typography, CardActions, makeStyles
 } from '@material-ui/core';
 import { getSessionStorage } from '../_helpers/Session';
+import { deepPurple } from '@material-ui/core/colors';
 
 const initialize = { email: '', name: '', password: '', password_new: '' };
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         minWidth: 275,
     },
@@ -27,7 +28,9 @@ const useStyles = makeStyles(() => ({
         width: '128px !important',
         height: '128px !important',
         margin: '0 auto',
-        fontSize: '3rem !important'
+        fontSize: '3rem !important',
+        color: theme.palette.getContrastText(deepPurple[500]),
+        backgroundColor: deepPurple[500],
     },
     textCenter: {
         textAlign: 'center'
@@ -43,6 +46,7 @@ const Profile = () => {
     const [errors, setErrors] = React.useState(initialize);
     const [pass, setPass] = React.useState({ showPass1: false, showPass2: false });
     const btn = document.getElementsByClassName('smt');
+    const name = getSessionStorage('_n');
 
     const getUser = async() => {
         const user = getSessionStorage('_u');
@@ -109,7 +113,7 @@ const Profile = () => {
                 <div className="profile1">
                     <Card className="cardContainer">
                         <CardContent>
-                            <Avatar alt="Remy Sharp" className={classes.large}>H</Avatar>
+                            <Avatar alt="Remy Sharp" className={classes.large}>{name ? name.charAt() : <i className="material-icons">person</i>}</Avatar>
                         </CardContent>
                         <CardContent>
                             <Typography variant="body2" component="p" className={classes.textCenter}>
